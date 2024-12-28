@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct LoadingCircle: View {
+    @State private var rotationAngle: Double = 0
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Circle()
+                .trim(from: 0, to: 0.30)
+                .stroke(style:
+                    StrokeStyle(
+                        lineWidth: 5,
+                        lineCap: .round
+                    )
+                )
+                .frame(width: 50, height: 50)
+                .rotationEffect(Angle.degrees(rotationAngle))
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 1).repeatForever(autoreverses: false)) {
+                        rotationAngle = 360
+                    }
+                }
+        }
     }
 }
 
