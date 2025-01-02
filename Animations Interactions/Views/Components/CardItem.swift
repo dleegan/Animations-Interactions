@@ -15,7 +15,9 @@ struct CardItem: View {
     var body: some View {
         VStack(spacing: 20) {
             if image != nil {
-                image
+                image?
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 250, height: 250)
                     .clipShape(
                         RoundedRectangle(cornerRadius: 10)
@@ -51,7 +53,7 @@ struct CardItem: View {
 #Preview(traits: .sizeThatFitsLayout) {
     VStack {
         CardItem(
-            image: Image(systemName: "Test"),
+            image: Image("Pepe Homer"),
             title: "Preview title with image",
             description: "This is a preview description for the card"
         )

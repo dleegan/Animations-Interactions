@@ -15,7 +15,7 @@ struct ReturnableCard: View {
         VStack(spacing: 50) {
             ZStack {
                 CardItem(
-                    image: Image(systemName: "Test"),
+                    image: Image("Pepe Homer"),
                     title: "Preview title with image",
                     description: "This is a preview description for the card"
                 )
